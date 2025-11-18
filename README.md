@@ -7,12 +7,17 @@
 # Provide an example of using union and intersection types in TypeScript.
 - when two or more types written with the separator <mark>|</mark> called union in TypeScript.
 >type AlphaNumeric = string | number;
+>
 >let data: AlphaNumeric=1;
+
 now <mark>data</mark> variable can store number or a string.
 
 - When two or more object type data is combined with <mark>&</mark> is called intersection in TypeScript.
 
 >type User={id:number, name:string}
+>
 >type Role={role:string}
+>
 >let userWithRole: User & Role ={}
+
 now <mark>userWithRole</mark> variable must contain the properties of <mark>User</mark> and <mark>Role</mark>. Otherwise TypeScript will throw an error.
