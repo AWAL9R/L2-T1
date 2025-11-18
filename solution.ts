@@ -39,7 +39,7 @@ function filterByRating(books: Book_A[]): Book_A[] {
     let newBooks: Book_A[] = []
 
     for (let i = 0; i < books.length; i++) {
-        if (books[i].rating >= 4) {
+        if (books[i].rating >= 4 && books[i].rating <= 5) {
             newBooks.push(books[i])
         }
     }
@@ -122,3 +122,5 @@ function calculateTotalPrice(input:Product[]):number{
 
     return totalPrice;
 }
+
+
