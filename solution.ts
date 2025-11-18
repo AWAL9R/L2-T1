@@ -136,5 +136,3 @@ function calculateTotalPrice(input: Product[]): number {
 
     return totalPrice;
 }
-
-
