@@ -82,11 +82,14 @@ function printBookDetails(input: Book) {
 
 
 
+
+
+
 type AlphaNumeric = string | number;
 type AlphaNumericArr = Array<string | number>;
-function isInArray(arr: AlphaNumericArr, query: AlphaNumeric): boolean {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === query) {
+function isInArray(input: AlphaNumericArr, query: AlphaNumeric): boolean {
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] === query) {
             return true;
         }
     }
@@ -103,6 +106,19 @@ function getUniqueValues(input1: AlphaNumericArr, input2:AlphaNumericArr): Alpha
     return output
 }
 
-const array1 = [1, 2,];
-const array2 = [ 7];
-console.log(getUniqueValues(array1, array2));
+
+type Product= { name: string, price: number, quantity: number, discount?: number }
+
+function calculateTotalPrice(input:Product[]):number{
+    let totalPrice=0;
+
+    input.forEach(product=>{
+        if(product.discount){
+            totalPrice+=(product.price*product.quantity)*(1-(product.discount/100))
+        }else{
+            totalPrice+=(product.price*product.quantity)
+        }
+    })
+
+    return totalPrice;
+}
