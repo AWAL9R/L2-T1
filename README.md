@@ -3,6 +3,13 @@
 - <mark>any</mark> in typescript means any type of data. it can be string, array, number, boolean etc.
 - <mark>unknown</mark> in typescript means any type of data. it can be string, array, number, boolean etc. but you must check type before using the variable.
 - <mark>never</mark> in typescript means function will never return any value. It used when function throws an error.
+>function throwError():never{
+>
+>throw new Error("an error happened")
+>    
+>}
+
+this function never can return anything.
 
 # Provide an example of using union and intersection types in TypeScript.
 - when two or more types written with the separator <mark>|</mark> called union in TypeScript.

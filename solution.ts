@@ -15,14 +15,24 @@ function formatValue(input: (string | number | boolean)): (string | number | boo
 
 
 function getLength(input: string | any[]): number {
-    return input.length;
+    if (typeof input == 'string') {
+        return input.length;
+    }
+    else if (Array.isArray(input)) {
+        return input.length;
+    }
+    return -1;
 }
 
 
 
 
 class Person {
-    constructor(public name: string, public age: number) {
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
     }
 
     getDetails(): string {
@@ -54,14 +64,14 @@ function filterByRating(books: Book_A[]): Book_A[] {
 
 type User = { id: number; name: string; email: string; isActive: boolean }
 function filterActiveUsers(input: User[]): User[] {
-    let newUser: User[] = []
+    let newUsers: User[] = []
 
     for (let i = 0; i < input.length; i++) {
         if (input[i].isActive) {
-            newUser.push(input[i])
+            newUsers.push(input[i])
         }
     }
-    return newUser;
+    return newUsers;
 }
 
 
@@ -95,11 +105,11 @@ function isInArray(input: AlphaNumericArr, query: AlphaNumeric): boolean {
     }
     return false;
 }
-function getUniqueValues(input1: AlphaNumericArr, input2:AlphaNumericArr): AlphaNumericArr {
-    let output:AlphaNumericArr = []
-    let input:AlphaNumericArr=[...input1, ...input2]
+function getUniqueValues(input1: AlphaNumericArr, input2: AlphaNumericArr): AlphaNumericArr {
+    let output: AlphaNumericArr = []
+    let input: AlphaNumericArr = [...input1, ...input2]
     for (let i = 0; i < input.length; i++) {
-        if(!isInArray(output, input[i])){
+        if (!isInArray(output, input[i])) {
             output.push(input[i])
         }
     }
@@ -107,16 +117,20 @@ function getUniqueValues(input1: AlphaNumericArr, input2:AlphaNumericArr): Alpha
 }
 
 
-type Product= { name: string, price: number, quantity: number, discount?: number }
 
-function calculateTotalPrice(input:Product[]):number{
-    let totalPrice=0;
 
-    input.forEach(product=>{
-        if(product.discount){
-            totalPrice+=(product.price*product.quantity)*(1-(product.discount/100))
-        }else{
-            totalPrice+=(product.price*product.quantity)
+
+
+type Product = { name: string, price: number, quantity: number, discount?: number }
+
+function calculateTotalPrice(input: Product[]): number {
+    let totalPrice = 0;
+
+    input.forEach(product => {
+        if (product.discount) {
+            totalPrice += ((product.price * product.quantity) * (1 - (product.discount / 100)))
+        } else {
+            totalPrice += (product.price * product.quantity)
         }
     })
 
