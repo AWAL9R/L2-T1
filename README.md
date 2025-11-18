@@ -12,7 +12,18 @@
 
 now <mark>data</mark> variable can store number or a string.
 
-- When two or more object type data is combined with <mark>&</mark> is called intersection in TypeScript.
+- When two or more object type is combined with <mark>|</mark> is also union in TypeScript.
+>type Phone = {id:number, name:string};
+>
+>type Computer = {id:number, name:string, processor: string}
+>
+>type Device = Phone|Computer;
+>
+>let userDevice:Device={}
+
+now <mark>userDevice</mark> variable can store Phone or Computer type data.
+
+- When two or more object type is combined with <mark>&</mark> is called intersection in TypeScript.
 
 >type User={id:number, name:string}
 >
